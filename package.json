@@ -12,7 +12,7 @@
     "uuid": "^8.3.2"
   },
   "name": "windows_manager",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "main": "index.ts",
   "scripts": {
     "build": "npx tsc",
