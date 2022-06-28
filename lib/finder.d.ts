@@ -1,0 +1,33 @@
+import { IWindowManager, WMState } from './wm.types';
+import * as React from 'react';
+import { Component } from 'react';
+import { FinderProps, FinderState, INode } from './finder.types';
+export declare class Finder extends Component<FinderProps, FinderState> {
+    private handler;
+    private taskbarButtons;
+    private colorSelect;
+    private deferred;
+    private deferredNodes;
+    constructor(props: FinderProps);
+    componentDidMount(): void;
+    componentWillUnmount(): void;
+    onKeyDown(event: any): void;
+    onWindowResize(): void;
+    onMount(id: string, wm: IWindowManager): void;
+    onUnmount(id: string, wm: IWindowManager): void;
+    onClose(id: string): void;
+    onMinimize(id: string): void;
+    onFullscreen(id: string): void;
+    onMove(id: string, state: WMState): void;
+    onResize(id: string, state: WMState): void;
+    onClickButton(id: string): void;
+    changeZIndex(id: string): void;
+    onSelectWindow(id: string): void;
+    update(): void;
+    add(node: INode): string;
+    remove(id: string): void;
+    removeButton(id: string): void;
+    private create;
+    renderButton(): JSX.Element;
+    render(): React.ReactPortal;
+}
