@@ -18,8 +18,8 @@
     "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "keywords": ["Windows manager", "Taskbar", "windows", "manager", "module"],
+  "author": "Marcello Russo, Alessio Bonaldo",
+  "license": "MIT",
+  "description": "Windows_manager is a window management module written in Typescript using REACT."
 }
