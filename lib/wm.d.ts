@@ -13,7 +13,9 @@ export declare class WM extends Component<WMProps, WMState> {
     private minWidth?;
     private minHeight?;
     private width?;
+    private LastWidth?;
     private height?;
+    private lastHeight?;
     private posX;
     private posY;
     private offsetX;

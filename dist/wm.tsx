@@ -30,7 +30,9 @@ export class WM extends Component<WMProps, WMState> {
   private minWidth?: number;
   private minHeight?: number;
   private width?: number;
+  private LastWidth?: number;
   private height?: number;
+  private lastHeight?: number;
   private posX: number;
   private posY: number;
   private offsetX: number;
@@ -143,6 +145,14 @@ export class WM extends Component<WMProps, WMState> {
 
   fullscreen() {
     const { fullscreen } = this.state;
+    if (fullscreen) {
+      this.width = this.LastWidth;
+      this.height = this.lastHeight;
+    }
+    else {
+      this.lastHeight = this.height;
+      this.LastWidth = this.width;
+    }
     this.setState({ fullscreen: !fullscreen });
   }
 
@@ -229,16 +239,16 @@ export class WM extends Component<WMProps, WMState> {
     return false;
   }
 
-  private renewSize(width: number | undefined, height: number | undefined): boolean {
-    width = width && width > 0 ? width : 0;
-    height = height && height > 0 ? height : 0;
+  private renewSize(newWidth: number | undefined, newHeight: number | undefined): boolean {
+    newWidth = newWidth && newWidth > 0 ? newWidth : 0;
+    newHeight = newHeight && newHeight > 0 ? newHeight : 0;
 
-    if (this.minWidth && width < this.minWidth) width = this.minWidth;
-    if (this.minHeight && height < this.minHeight) height = this.minHeight;
+    if (this.minWidth && newWidth < this.minWidth) newWidth = this.minWidth;
+    if (this.minHeight && newHeight < this.minHeight) newHeight = this.minHeight;
 
-    if (width > 0 && width !== this.width || height > 0 && height !== this.height) {
-      this.width = width;
-      this.height = height;
+    if (newWidth > 0 && newWidth !== this.width || newHeight > 0 && newHeight !== this.height) {
+      this.width = newWidth;
+      this.height = newHeight;
       return true;
     }
     return false;
