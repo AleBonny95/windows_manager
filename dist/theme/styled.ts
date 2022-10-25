@@ -84,9 +84,10 @@ export const Wrapper = styled.div`
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 5px, rgba(0, 0, 0, 0.1) 0px 1px 1px;
   min-width: ${({minWidth}: WrapperProps) => minWidth ? minWidth + `px` : defaultMinWidth + `px`};
-  min-height: ${({minHeight}: WrapperProps) => minHeight ? minHeight + `px` : defaultMinHeight + `px`};
+  min-height: ${({minHeight}: WrapperProps) => minHeight ? minHeight + `px` : `fit-content`};
   user-select: none;
   `;
+  /* defaultMinHeight + `px`}; */
 
   export const WrapperHeader = styled.div`
   background-color: ${({isActive}: WrapperHeaderProps) => isActive ?  `red` : `grey`};
