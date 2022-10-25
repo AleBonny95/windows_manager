@@ -269,8 +269,6 @@ export class Finder extends Component<FinderProps, FinderState> {
     const zIndex = 1000;
     const margin = marginTaskBar ? marginTaskBar : 10;
     const minHeight = minTaskBarHeight ? minTaskBarHeight : 50;
-    const height = "fit-content";
-    const minHeightProp = "min-height";
 
     const minTaskBarWidth = window.innerWidth - (margin * 2);
     const styleTaskBar = { left: margin, bottom: 0, zIndex: zIndex };
@@ -291,7 +289,7 @@ export class Finder extends Component<FinderProps, FinderState> {
     }
     else {
       wrapperButton = <Wrapper
-        minHeight={minTaskBarHeight ? minTaskBarHeight : height}
+        minHeight={minTaskBarHeight ? minTaskBarHeight : minHeight}
         minWidth={minTaskBarWidth}
         style={styleTaskBar}
         isActive={true}

@@ -1,7 +1,7 @@
 export interface WrapperProps {
   isActive: boolean;
   minWidth?: number;
-  minHeight?: number | string;
+  minHeight?: number;
 }
 
 export interface HeaderProps {
