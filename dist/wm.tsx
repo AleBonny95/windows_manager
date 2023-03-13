@@ -20,7 +20,7 @@ import { WMProps, WMState } from './wm.types';
 import { Size } from './domain';
 
 export class WM extends Component<WMProps, WMState> {
-  private readonly id: string;
+  private readonly wid: string;
   private headerElement: HTMLDivElement | null = null
   private contentElement: HTMLDivElement | null = null;
   private wrapperElement: HTMLDivElement | null = null;
@@ -44,7 +44,7 @@ export class WM extends Component<WMProps, WMState> {
 
   constructor(props: WMProps) {
     super(props);
-    this.id = props.id ? props.id : uuidv4();
+    this.wid = props.wid ? props.wid : uuidv4();
 
     this.state = {
       action: 0x0,
@@ -108,7 +108,7 @@ export class WM extends Component<WMProps, WMState> {
   }
 
   getId(): string {
-    return this.id;
+    return this.wid;
   }
 
   getTitle(): string {
@@ -141,6 +141,10 @@ export class WM extends Component<WMProps, WMState> {
       }
     }
     return true;
+  }
+
+  isFullscreen() {
+    return this.state.fullscreen;
   }
 
   fullscreen() {
@@ -450,6 +454,7 @@ export class WM extends Component<WMProps, WMState> {
 
     return ReactDOM.createPortal(
       <Wrapper
+        id={this.wid}
         style={style}
         ref={onRef}
         isActive={isActive}

@@ -8,6 +8,7 @@ export declare class Finder extends Component<FinderProps, FinderState> {
     private colorSelect;
     private deferred;
     private deferredNodes;
+    private zIndexStart;
     constructor(props: FinderProps);
     componentDidMount(): void;
     componentWillUnmount(): void;
@@ -26,6 +27,7 @@ export declare class Finder extends Component<FinderProps, FinderState> {
     update(): void;
     add(node: INode): string;
     remove(id: string): void;
+    isFullscreen(wid: string): boolean;
     removeButton(id: string): void;
     private create;
     renderButton(): JSX.Element;

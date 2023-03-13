@@ -1,25 +1,26 @@
-import { ReactNode } from "react"
-import { Coords, Positioning, Size } from "./domain"
-import { HeaderBehavior } from "./header.types"
+import { ReactNode } from "react";
+import { Coords, Positioning, Size } from "./domain";
+import { HeaderBehavior } from "./header.types";
 
 export interface IWindowManager {
-  getState(): WMState
-  getId(): string
-  setSize(width: number, height: number): void
-  getSize(): { width: number, height: number }
-  updatePosition(x: number, y: number, notify: boolean): void
-  setActive(active: boolean, z: number): void
-  getZIndex(): number
-  getTitle(): string
-  setHidden(v: boolean): void
-  isHidden(): boolean
-  minimize(): void
-  fullscreen(): void
-  restore(): void
+  getState(): WMState;
+  getId(): string;
+  setSize(width: number, height: number): void;
+  getSize(): { width: number; height: number };
+  updatePosition(x: number, y: number, notify: boolean): void;
+  setActive(active: boolean, z: number): void;
+  getZIndex(): number;
+  getTitle(): string;
+  setHidden(v: boolean): void;
+  isHidden(): boolean;
+  isFullscreen(): boolean;
+  minimize(): void;
+  fullscreen(): void;
+  restore(): void;
 }
 
 export interface WMProps {
-  id?: string;
+  wid?: string;
   children: ReactNode;
   title: string;
   padding?: number;

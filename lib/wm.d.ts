@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { WMProps, WMState } from './wm.types';
 import { Size } from './domain';
 export declare class WM extends Component<WMProps, WMState> {
-    private readonly id;
+    private readonly wid;
     private headerElement;
     private contentElement;
     private wrapperElement;
@@ -35,6 +35,7 @@ export declare class WM extends Component<WMProps, WMState> {
     setSize(width: number, height: number): void;
     setHidden(hidden: boolean): void;
     isHidden(): boolean;
+    isFullscreen(): boolean;
     fullscreen(): void;
     restore(): void;
     minimize(): void;

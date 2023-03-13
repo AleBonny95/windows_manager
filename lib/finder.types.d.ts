@@ -13,6 +13,7 @@ export interface INodeProps {
     initialSize?: Size;
 }
 export interface INode {
+    wid: string;
     children: ReactNode;
     header?: JSX.Element;
     hProps: HeaderBehavior;
@@ -29,6 +30,7 @@ export interface IHandle {
 export interface FinderProps {
     onMounted: (f: Finder) => void;
     nodes: INode[];
+    zIndexStart?: number;
     withTaskBar: boolean;
     padding?: number;
     marginTaskBar?: number;

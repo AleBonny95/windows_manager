@@ -19,6 +19,7 @@ export class Finder extends Component<FinderProps, FinderState> {
   private colorSelect = '';
   private deferred: any = null;
   private deferredNodes: Map<string, INode> = new Map();
+  private zIndexStart: number = 1;
 
   constructor(props: FinderProps) {
     super(props);
@@ -26,6 +27,7 @@ export class Finder extends Component<FinderProps, FinderState> {
       selection: '',
       update: 0,
     }
+    if (props.zIndexStart) this.zIndexStart = props.zIndexStart;
     this.onWindowResize = this.onWindowResize.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
   }
@@ -134,7 +136,7 @@ export class Finder extends Component<FinderProps, FinderState> {
       const active = this.handler.size - 1;
       this.handler.forEach(h => {
         if (h.wm) {
-          h.wm.setActive(active == i, i);
+          h.wm.setActive(active == i, this.zIndexStart + i);
           i++;
         }
       });
@@ -153,7 +155,7 @@ export class Finder extends Component<FinderProps, FinderState> {
 
   public add(node: INode): string {
     node.children
-    const id = uuidv4();
+    const id = node.wid ? node.wid : uuidv4();
     this.deferredNodes.set(id, node);
     if (!this.deferred) {
       const interval = 100;
@@ -179,39 +181,47 @@ export class Finder extends Component<FinderProps, FinderState> {
     }
   }
 
+  public isFullscreen(wid: string): boolean {
+    const h = this.handler.get(wid);
+    if (h && h.wm) {
+      return h.wm.isFullscreen();
+    }
+    return false;
+  }
+
   removeButton(id: string) {
     const index = this.taskbarButtons.indexOf(id);
     const arrayButtons = this.taskbarButtons.slice(0, index).concat(this.taskbarButtons.slice(index + 1));
     this.taskbarButtons = arrayButtons;
   }
 
-  private create(id: string, node: INode) {
-    const initialZIndex = this.handler.size + 1;
+  private create(wid: string, node: INode) {
+    const initialZIndex = this.handler.size + this.zIndexStart;
     const { withTaskBar } = this.props;
     const rn = (
       <WM
-        key={"window_" + id}
-        id={id}
+        key={"window_" + wid}
+        wid={wid}
         title={node.title}
         isResizable={node.resizable}
         initialZIndex={initialZIndex}
         initialPosition={node.initialPosition}
         initialSize={node.initialSize}
-        onClose={withTaskBar ? () => this.onClose(id) : undefined}
-        onMouseDown={() => this.onSelectWindow(id)}
-        onMinimize={withTaskBar ? () => this.onMinimize(id) : undefined}
-        onFullscreen={withTaskBar ? () => this.onFullscreen(id) : undefined}
-        onMove={(state: any) => { this.onMove(id, state) }}
-        onResize={(state: any) => { this.onResize(id, state) }}
-        onMount={(wm: any) => this.onMount(id, wm)}
-        onUnmount={(wm: any) => this.onUnmount(id, wm)}
+        onClose={withTaskBar ? () => this.onClose(wid) : undefined}
+        onMouseDown={() => this.onSelectWindow(wid)}
+        onMinimize={withTaskBar ? () => this.onMinimize(wid) : undefined}
+        onFullscreen={withTaskBar ? () => this.onFullscreen(wid) : undefined}
+        onMove={(state: any) => { this.onMove(wid, state) }}
+        onResize={(state: any) => { this.onResize(wid, state) }}
+        onMount={(wm: any) => this.onMount(wid, wm)}
+        onUnmount={(wm: any) => this.onUnmount(wid, wm)}
         header={node.header}
         hprops={node.hProps}
       >
         {node.children}
       </WM>
     );
-    this.taskbarButtons.push(id);
+    this.taskbarButtons.push(wid);
     const propsNode: INodeProps = {
       closable: node.hProps.isClosable ? node.hProps.isClosable : false,
       minimizable: node.hProps.isMinimizable ? node.hProps.isMinimizable : false,
@@ -221,7 +231,7 @@ export class Finder extends Component<FinderProps, FinderState> {
       initialPosition: node.initialPosition,
       initialSize: node.initialSize
     };
-    this.handler.set(id, { node: rn, wm: null, propsNode: propsNode });
+    this.handler.set(wid, { node: rn, wm: null, propsNode: propsNode });
   }
 
   renderButton() {

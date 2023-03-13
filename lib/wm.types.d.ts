@@ -15,12 +15,13 @@ export interface IWindowManager {
     getTitle(): string;
     setHidden(v: boolean): void;
     isHidden(): boolean;
+    isFullscreen(): boolean;
     minimize(): void;
     fullscreen(): void;
     restore(): void;
 }
 export interface WMProps {
-    id?: string;
+    wid?: string;
     children: ReactNode;
     title: string;
     padding?: number;

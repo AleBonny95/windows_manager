@@ -1,25 +1,31 @@
-import styled from 'styled-components';
-import {Sun} from '@styled-icons/boxicons-solid/Sun'
-import {Moon} from '@styled-icons/heroicons-solid/Moon'
-import * as bootstrap from '@styled-icons/bootstrap'
-import { GlobalThemeProps } from './global.types'
+import styled from "styled-components";
+import { Sun } from "@styled-icons/boxicons-solid/Sun";
+import { Moon } from "@styled-icons/heroicons-solid/Moon";
+import * as bootstrap from "@styled-icons/bootstrap";
+import { GlobalThemeProps } from "./global.types";
 
 //-------------------INTERFACE-------------------//
 
-import { ButtonProps, ContentWrapperProps, HeaderProps, WrapperHeaderProps, WrapperProps } from "./styled.types";
+import {
+  ButtonProps,
+  ContentWrapperProps,
+  HeaderProps,
+  WrapperHeaderProps,
+  WrapperProps,
+} from "./styled.types";
 
 //-------------------CONST-------------------//
 
 export const defaultMinWidth = 400;
 export const defaultMinHeight = 225;
 
-export const rightResizeCursor = 'ew-resize';
-export const bottomResizeCursor = 'ns-resize';
-export const bottomRightResizeCursor = 'nwse-resize';
+export const rightResizeCursor = "ew-resize";
+export const bottomResizeCursor = "ns-resize";
+export const bottomRightResizeCursor = "nwse-resize";
 
 //-------------------STYLE ELEMENTS-------------------//
 
-const wrapperStyles = ({isActive}: WrapperProps) => {
+const wrapperStyles = ({ isActive }: WrapperProps) => {
   if (isActive) {
     return `
       
@@ -53,7 +59,7 @@ export const Container = styled.div`
   }
   .slider:before {
     position: absolute;
-    content: '';
+    content: "";
     background-color: ${({ theme }) => theme.background};
     -webkit-transition: 0.2s;
     transition: 0.2s;
@@ -83,24 +89,27 @@ export const Wrapper = styled.div`
   background: ${({ theme }: GlobalThemeProps) => theme.background};
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 5px, rgba(0, 0, 0, 0.1) 0px 1px 1px;
-  min-width: ${({minWidth}: WrapperProps) => minWidth ? minWidth + `px` : defaultMinWidth + `px`};
-  min-height: ${({minHeight}: WrapperProps) => minHeight ? minHeight + `px` : `min-content`};
+  min-width: ${({ minWidth }: WrapperProps) =>
+    minWidth ? minWidth + `px` : defaultMinWidth + `px`};
+  min-height: ${({ minHeight }: WrapperProps) =>
+    minHeight ? minHeight + `px` : `min-content`};
   user-select: none;
-  `;
-  /* defaultMinHeight + `px`}; */
+`;
+/* defaultMinHeight + `px`}; */
 
-  export const WrapperHeader = styled.div`
-  background-color: ${({isActive}: WrapperHeaderProps) => isActive ?  `red` : `grey`};
-  `;
-  /* background: white; */
+export const WrapperHeader = styled.div`
+  background-color: ${({ isActive }: WrapperHeaderProps) =>
+    isActive ? `red` : `grey`};
+`;
+/* background: white; */
 
 export const WindowHeader = styled.div`
-  height: ${({height}: HeaderProps) => height ? height + `px` : `30px`};
+  height: ${({ height }: HeaderProps) => (height ? height + `px` : `30px`)};
   min-height: 30px;
   border-bottom: 1px solid #ccc;
-  cursor: ${({cursor}: HeaderProps) => cursor};
+  cursor: ${({ cursor }: HeaderProps) => cursor};
   align-items: center;
-  padding: ${({padding}: HeaderProps) => padding ? padding + `px` : `5px`};
+  padding: ${({ padding }: HeaderProps) => (padding ? padding + `px` : `5px`)};
 `;
 
 //cursor: ${({isDraggable}: HeaderProps) => isDraggable ? `-webkit-grab` : `default`};
@@ -108,9 +117,11 @@ export const WindowHeader = styled.div`
 // justify-content: space-between;
 
 export const ContentWrapper = styled.div`
-  padding: ${({padding}: ContentWrapperProps) => padding ? padding + `px` : `0`};
+  padding: ${({ padding }: ContentWrapperProps) =>
+    padding ? padding + `px` : `0`};
+  height: 100%;
+  width: 100%;
 `;
-
 
 export const WindowTitle = styled.div`
   color: ${({ theme }: GlobalThemeProps) => theme.text};
@@ -149,9 +160,10 @@ export const BottomRightResizeHandle = styled.div`
 `;
 
 export const Button = styled.button`
-  margin: ${({margin}: ButtonProps) => margin ? margin + `px` : `0`}; 
-  color: ${({color}: ButtonProps, ) => color ? color : `#006BB4`}; 
-  border-bottom: ${({border, color}: ButtonProps) => (border ? border + `px solid `+ (color ? color : `#006BB4`) : `none`)};
+  margin: ${({ margin }: ButtonProps) => (margin ? margin + `px` : `0`)}; 
+  color: ${({ color }: ButtonProps) => (color ? color : `#006BB4`)}; 
+  border-bottom: ${({ border, color }: ButtonProps) =>
+    border ? border + `px solid ` + (color ? color : `#006BB4`) : `none`};
   
   border-radius: 4px;
   padding: 10px 25px;
@@ -211,11 +223,11 @@ export const Icons = styled.span`
   justify-content: space-between;
   top: 25%;
   align-items: center;
-  
+
   svg {
-      color: ${({ theme }) => theme.text};
-      z-index: 1;
-    }
+    color: ${({ theme }) => theme.text};
+    z-index: 1;
+  }
 `;
 
 export const CloseIcon = styled.div`
@@ -229,10 +241,11 @@ export const CloseIcon = styled.div`
   &:hover {
     opacity: 1;
   }
-  &:before, &:after {
+  &:before,
+  &:after {
     position: absolute;
     right: 15px;
-    content: ' ';
+    content: " ";
     height: 21px;
     width: 2px;
     background-color: #333;
@@ -259,7 +272,7 @@ export const FullscreenIcon = styled.div`
   &:after {
     position: absolute;
     right: 15px;
-    content: ' ';
+    content: " ";
     height: 21px;
     width: 2px;
     background-color: #333;
@@ -280,17 +293,16 @@ export const MinIcon = styled.div`
   &:after {
     position: absolute;
     right: 15px;
-    content: ' ';
+    content: " ";
     height: 21px;
     width: 2px;
     background-color: #333;
   }
-  
-   &:after {
+
+  &:after {
     transform: rotate(90deg);
   }
 `;
-
 
 export const CloseIconBootstrap = styled(bootstrap.XCircleFill)`
   width: 1.5rem;
@@ -300,7 +312,8 @@ export const CloseIconBootstrap = styled(bootstrap.XCircleFill)`
   color: ${({ theme }) => theme.text};
   &:hover {
     color: white;
-  }`;
+  }
+`;
 
 export const MinIconBootstrap = styled(bootstrap.DashCircleFill)`
   width: 1.5rem;
@@ -310,7 +323,8 @@ export const MinIconBootstrap = styled(bootstrap.DashCircleFill)`
   color: ${({ theme }) => theme.text};
   &:hover {
     color: white;
-  }`;
+  }
+`;
 
 export const MaxiIconBootstrap = styled(bootstrap.StopCircleFill)`
   width: 1.5rem;
@@ -320,7 +334,8 @@ export const MaxiIconBootstrap = styled(bootstrap.StopCircleFill)`
   color: ${({ theme }) => theme.text};
   &:hover {
     color: white;
-  }`;
+  }
+`;
 /* `
   color: ${({ theme }) => theme.text};
 `; */
