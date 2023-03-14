@@ -99,7 +99,8 @@ export const Wrapper = styled.div`
 
 export const WrapperHeader = styled.div`
   background-color: ${({ isActive }: WrapperHeaderProps) =>
-    isActive ? `red` : `grey`};
+    isActive ? `skyblue` : `grey`};
+  border-radius: 3px 3px 0 0;
 `;
 /* background: white; */
 
