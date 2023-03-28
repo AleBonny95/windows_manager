@@ -22,6 +22,7 @@ export declare class Finder extends Component<FinderProps, FinderState> {
     onMove(id: string, state: WMState): void;
     onResize(id: string, state: WMState): void;
     onClickButton(id: string): void;
+    hideShowWindow(id: string): void;
     changeZIndex(id: string): void;
     onSelectWindow(id: string): void;
     update(): void;

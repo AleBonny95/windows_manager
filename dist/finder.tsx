@@ -108,6 +108,10 @@ export class Finder extends Component<FinderProps, FinderState> {
   }
 
   onClickButton(id: string) {
+    this.hideShowWindow(id);
+  }
+
+  hideShowWindow(id: string) {
     const { selection } = this.state;
     const h = this.handler.get(id);
 
@@ -196,42 +200,48 @@ export class Finder extends Component<FinderProps, FinderState> {
   }
 
   private create(wid: string, node: INode) {
-    const initialZIndex = this.handler.size + this.zIndexStart;
-    const { withTaskBar } = this.props;
-    const rn = (
-      <WM
-        key={"window_" + wid}
-        wid={wid}
-        title={node.title}
-        isResizable={node.resizable}
-        initialZIndex={initialZIndex}
-        initialPosition={node.initialPosition}
-        initialSize={node.initialSize}
-        onClose={withTaskBar ? () => this.onClose(wid) : undefined}
-        onMouseDown={() => this.onSelectWindow(wid)}
-        onMinimize={withTaskBar ? () => this.onMinimize(wid) : undefined}
-        onFullscreen={withTaskBar ? () => this.onFullscreen(wid) : undefined}
-        onMove={(state: any) => { this.onMove(wid, state) }}
-        onResize={(state: any) => { this.onResize(wid, state) }}
-        onMount={(wm: any) => this.onMount(wid, wm)}
-        onUnmount={(wm: any) => this.onUnmount(wid, wm)}
-        header={node.header}
-        hprops={node.hProps}
-      >
-        {node.children}
-      </WM>
-    );
-    this.taskbarButtons.push(wid);
-    const propsNode: INodeProps = {
-      closable: node.hProps.isClosable ? node.hProps.isClosable : false,
-      minimizable: node.hProps.isMinimizable ? node.hProps.isMinimizable : false,
-      draggable: node.hProps.isDraggable ? node.hProps.isDraggable : false,
-      fullscreen: node.hProps.canFullscreen ? node.hProps.canFullscreen : false,
-      resizable: node.resizable,
-      initialPosition: node.initialPosition,
-      initialSize: node.initialSize
-    };
-    this.handler.set(wid, { node: rn, wm: null, propsNode: propsNode });
+    if (this.handler.get(wid) === undefined) {
+      const initialZIndex = this.handler.size + this.zIndexStart;
+      const { withTaskBar } = this.props;
+      const rn = (
+        <WM
+          key={"window_" + wid}
+          wid={wid}
+          title={node.title}
+          isResizable={node.resizable}
+          initialZIndex={initialZIndex}
+          initialPosition={node.initialPosition}
+          initialSize={node.initialSize}
+          onClose={withTaskBar ? () => this.onClose(wid) : undefined}
+          onMouseDown={() => this.onSelectWindow(wid)}
+          onMinimize={withTaskBar ? () => this.onMinimize(wid) : undefined}
+          onFullscreen={withTaskBar ? () => this.onFullscreen(wid) : undefined}
+          onMove={(state: any) => { this.onMove(wid, state) }}
+          onResize={(state: any) => { this.onResize(wid, state) }}
+          onMount={(wm: any) => this.onMount(wid, wm)}
+          onUnmount={(wm: any) => this.onUnmount(wid, wm)}
+          header={node.header}
+          hprops={node.hProps}
+        >
+          {node.children}
+        </WM>
+      );
+      this.taskbarButtons.push(wid);
+      const propsNode: INodeProps = {
+        closable: node.hProps.isClosable ? node.hProps.isClosable : false,
+        minimizable: node.hProps.isMinimizable ? node.hProps.isMinimizable : false,
+        draggable: node.hProps.isDraggable ? node.hProps.isDraggable : false,
+        fullscreen: node.hProps.canFullscreen ? node.hProps.canFullscreen : false,
+        resizable: node.resizable,
+        initialPosition: node.initialPosition,
+        initialSize: node.initialSize
+      };
+      this.handler.set(wid, { node: rn, wm: null, propsNode: propsNode });
+    }
+    else {
+      this.hideShowWindow(wid);
+    }
+
   }
 
   renderButton() {
