@@ -16,7 +16,7 @@
     "url": "https://github.com/AleBonny95/windows_manager"
   },
   "name": "windows_manager",
-  "version": "1.0.52",
+  "version": "1.0.55",
   "main": "index.ts",
   "scripts": {
     "build": "npx tsc",

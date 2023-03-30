@@ -177,6 +177,18 @@ export class Finder extends Component<FinderProps, FinderState> {
     return id;
   }
 
+  public closeAll() {
+    this.handler.forEach((el, k) => {
+      this.onClose(k);
+    });
+  }
+
+  public minifyAll() {
+    this.handler.forEach((el, k) => {
+      this.onMinimize(k);
+    });
+  }
+
   public remove(id: string) {
     const h = this.handler.get(id);
     if (h) {

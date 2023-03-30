@@ -27,6 +27,8 @@ export declare class Finder extends Component<FinderProps, FinderState> {
     onSelectWindow(id: string): void;
     update(): void;
     add(node: INode): string;
+    closeAll(): void;
+    minifyAll(): void;
     remove(id: string): void;
     isFullscreen(wid: string): boolean;
     removeButton(id: string): void;
