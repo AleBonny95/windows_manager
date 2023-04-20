@@ -1,4 +1,4 @@
-import { ButtonProps, ContentWrapperProps, HeaderProps, WrapperHeaderProps, WrapperProps } from "./styled.types";
+import { ButtonProps, ContentWrapperProps, HeaderProps, WrapperHeaderProps, WrapperProps } from "./styledTypes";
 export declare const defaultMinWidth = 400;
 export declare const defaultMinHeight = 225;
 export declare const rightResizeCursor = "ew-resize";
@@ -18,8 +18,3 @@ export declare const Icons: import("styled-components").StyledComponent<"span", 
 export declare const CloseIcon: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const FullscreenIcon: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const MinIcon: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const CloseIconBootstrap: import("styled-components").StyledComponent<import("@styled-icons/styled-icon").StyledIcon, any, {}, never>;
-export declare const MinIconBootstrap: import("styled-components").StyledComponent<import("@styled-icons/styled-icon").StyledIcon, any, {}, never>;
-export declare const MaxiIconBootstrap: import("styled-components").StyledComponent<import("@styled-icons/styled-icon").StyledIcon, any, {}, never>;
-export declare const SunIcon: import("styled-components").StyledComponent<import("@styled-icons/styled-icon").StyledIcon, any, {}, never>;
-export declare const MoonIcon: import("styled-components").StyledComponent<import("@styled-icons/styled-icon").StyledIcon, any, {}, never>;

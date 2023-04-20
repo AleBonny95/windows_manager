@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { WMProps, WMState } from './wm.types';
+import { WMProps, WMState } from './wmTypes';
 import { Size } from './domain';
 export declare class WM extends Component<WMProps, WMState> {
     private readonly wid;

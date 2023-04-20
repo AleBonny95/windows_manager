@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Sun } from "@styled-icons/boxicons-solid/Sun";
-import { Moon } from "@styled-icons/heroicons-solid/Moon";
-import * as bootstrap from "@styled-icons/bootstrap";
-import { GlobalThemeProps } from "./global.types";
+// import { Sun } from "@styled-icons/boxicons-solid/Sun";
+// import { Moon } from "@styled-icons/heroicons-solid/Moon";
+// import * as bootstrap from "@styled-icons/bootstrap";
+import { GlobalThemeProps } from "./globalTypes";
 
 //-------------------INTERFACE-------------------//
 
@@ -12,7 +12,7 @@ import {
   HeaderProps,
   WrapperHeaderProps,
   WrapperProps,
-} from "./styled.types";
+} from "./styledTypes";
 
 //-------------------CONST-------------------//
 
@@ -305,42 +305,42 @@ export const MinIcon = styled.div`
   }
 `;
 
-export const CloseIconBootstrap = styled(bootstrap.XCircleFill)`
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-  float: right;
-  color: ${({ theme }) => theme.text};
-  &:hover {
-    color: white;
-  }
-`;
-
-export const MinIconBootstrap = styled(bootstrap.DashCircleFill)`
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-  float: right;
-  color: ${({ theme }) => theme.text};
-  &:hover {
-    color: white;
-  }
-`;
-
-export const MaxiIconBootstrap = styled(bootstrap.StopCircleFill)`
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-  float: right;
-  color: ${({ theme }) => theme.text};
-  &:hover {
-    color: white;
-  }
-`;
+// export const CloseIconBootstrap = styled(bootstrap.XCircleFill)`
+//   width: 1.5rem;
+//   height: 1.5rem;
+//   cursor: pointer;
+//   float: right;
+//   color: ${({ theme }) => theme.text};
+//   &:hover {
+//     color: white;
+//   }
+// `;
+//
+// export const MinIconBootstrap = styled(bootstrap.DashCircleFill)`
+//   width: 1.5rem;
+//   height: 1.5rem;
+//   cursor: pointer;
+//   float: right;
+//   color: ${({ theme }) => theme.text};
+//   &:hover {
+//     color: white;
+//   }
+// `;
+//
+// export const MaxiIconBootstrap = styled(bootstrap.StopCircleFill)`
+//   width: 1.5rem;
+//   height: 1.5rem;
+//   cursor: pointer;
+//   float: right;
+//   color: ${({ theme }) => theme.text};
+//   &:hover {
+//     color: white;
+//   }
+// `;
 /* `
   color: ${({ theme }) => theme.text};
 `; */
 
-export const SunIcon = styled(Sun)``;
+// export const SunIcon = styled(Sun)``;
 
-export const MoonIcon = styled(Moon)``;
+// export const MoonIcon = styled(Moon)``;

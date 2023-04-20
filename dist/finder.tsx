@@ -1,4 +1,4 @@
-import { IWindowManager, WMState } from './wm.types';
+import { IWindowManager, WMState } from './wmTypes';
 import { WM } from './wm';
 
 import * as React from 'react';
@@ -11,7 +11,7 @@ import {
   ContentWrapper,
   Button,
 } from './theme/styled';
-import { FinderProps, FinderState, IHandle, INode, INodeProps } from './finder.types';
+import { FinderProps, FinderState, IHandle, INode, INodeProps } from './finderTypes';
 
 export class Finder extends Component<FinderProps, FinderState> {
   private handler: Map<string, IHandle> = new Map();

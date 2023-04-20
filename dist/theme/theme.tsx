@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './global';
 import { lightTheme, darkTheme, lightId, darkId } from './properties';
 
-import { ITheme, ThemeProps, ThemeState } from "./theme.types";
+import { ITheme, ThemeProps, ThemeState } from "./themeTypes";
 
 /*
 

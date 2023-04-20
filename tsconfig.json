@@ -5,7 +5,7 @@
     "jsx": "react",
     /* Modules */
     "module": "commonjs",                                /* Specify what module code is generated. */
-    "isolatedModules": false,
+    "isolatedModules": true,
     "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
     "declaration": true,

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { HeaderProps, HeaderState, IHeader } from './header.types';
+import { HeaderProps, HeaderState, IHeader } from './headerTypes';
 export declare class Header extends Component<HeaderProps, HeaderState> implements IHeader {
     private minimize;
     private fullscreen;

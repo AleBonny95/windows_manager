@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component } from "react";
 import { WindowTitle, WindowHeader, CloseIcon, MinIcon, FullscreenIcon } from "./theme/styled";
-import { HeaderProps, HeaderState, IHeader } from './header.types';
+import { HeaderProps, HeaderState, IHeader } from './headerTypes';
 
 
 export class Header extends Component<HeaderProps, HeaderState> implements IHeader {

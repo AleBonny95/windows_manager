@@ -1,7 +1,7 @@
-import { IWindowManager, WMState } from './wm.types';
+import { IWindowManager, WMState } from './wmTypes';
 import * as React from 'react';
 import { Component } from 'react';
-import { FinderProps, FinderState, INode } from './finder.types';
+import { FinderProps, FinderState, INode } from './finderTypes';
 export declare class Finder extends Component<FinderProps, FinderState> {
     private handler;
     private taskbarButtons;

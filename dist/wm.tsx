@@ -16,7 +16,7 @@ import {
 import { Header } from './header';
 import { defaultSize, getBoundaryCoords, getCoordsFromPosition, isSmartPosition } from './utils';
 
-import { WMProps, WMState } from './wm.types';
+import { WMProps, WMState } from './wmTypes';
 import { Size } from './domain';
 
 export class WM extends Component<WMProps, WMState> {

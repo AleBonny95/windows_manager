@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { ITheme, ThemeProps, ThemeState } from "./theme.types";
+import { ITheme, ThemeProps, ThemeState } from "./themeTypes";
 export declare class Theme extends Component<ThemeProps, ThemeState> {
     private themes;
     private readonly defaultTheme;

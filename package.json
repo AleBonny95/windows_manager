@@ -7,7 +7,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.5",
-    "styled-icons": "^10.45.0",
     "typescript": "^4.7.4",
     "uuid": "^8.3.2"
   },
@@ -16,13 +15,21 @@
     "url": "https://github.com/AleBonny95/windows_manager"
   },
   "name": "windows_manager",
-  "version": "1.0.59",
+  "version": "1.0.64",
   "main": "index.ts",
   "scripts": {
     "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["windows manager", "taskbar", "windows", "manager", "module", "typescript", "react"],
+  "keywords": [
+    "windows manager",
+    "taskbar",
+    "windows",
+    "manager",
+    "module",
+    "typescript",
+    "react"
+  ],
   "author": "Marcello Russo, Alessio Bonaldo",
   "license": "MIT",
   "description": "Windows_manager is a window management module written in Typescript using REACT."
